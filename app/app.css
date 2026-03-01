@@ -12,3 +12,42 @@ body {
 a {
   text-decoration: none;
 }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 700ms ease forwards;
+}
+
+.animate-fade-up-delay {
+  opacity: 0;
+  animation: fadeUp 850ms ease 120ms forwards;
+}
+
+.reveal {
+  opacity: 0;
+  animation: fadeUp 700ms ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-up-delay,
+  .reveal {
+    opacity: 1;
+    animation: none;
+  }
+
+  * {
+    scroll-behavior: auto !important;
+  }
+}

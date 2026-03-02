@@ -6,8 +6,128 @@ import { salons } from "~/data/salons";
 const popular = salons.slice(0, 4);
 const quickTags = ["Bay Ridge", "Astoria", "Flatbush", "Jackson Heights"];
 
+const featuredSalons = [
+  {
+    name: "Noor Beauty Lounge",
+    location: "Bay Ridge, Brooklyn",
+    rating: "4.9",
+    image:
+      "https://images.unsplash.com/photo-1697604758668-153049f4abab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3p5JTIwYmVhdXR5JTIwc2Fsb24lMjB3YXJtJTIwbGlnaHRpbmclMjBpbnRlcmlvcnxlbnwxfHx8fDE3NzIzNjQwNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    tags: ["Private Room", "Female Staff Only"],
+  },
+  {
+    name: "Amal Hair Studio",
+    location: "Astoria, Queens",
+    rating: "4.8",
+    image:
+      "https://images.unsplash.com/photo-1742196530221-0df5c43baca9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYWlyJTIwc2Fsb24lMjBjaGFpciUyMG1pcnJvciUyMHdhcm0lMjBpbnRlcmlvcnxlbnwxfHx8fDE3NzIzNjQwNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    tags: ["Private Room", "Curtained Area"],
+  },
+  {
+    name: "Safa Glow Spa",
+    location: "Jackson Heights, Queens",
+    rating: "4.7",
+    image:
+      "https://images.unsplash.com/photo-1630595633877-9918ee257288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHJlbGF4aW5nJTIwc3BhJTIwdHJlYXRtZW50JTIwcGVhY2VmdWx8ZW58MXx8fHwxNzcyMzY0MDU3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    tags: ["Private Room", "Female Staff"],
+  },
+  {
+    name: "Barakah Beauty Bar",
+    location: "Flatbush, Brooklyn",
+    rating: "4.9",
+    image:
+      "https://images.unsplash.com/photo-1599387737838-660b75526801?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzYWxvbiUyMGhhaXJzdHlsaW5nJTIwd29tYW4lMjBwcm9mZXNzaW9uYWwlMjBzZXJ2aWNlfGVufDF8fHx8MTc3MjM2NDA2M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    tags: ["Private Room", "Walk-ins Welcome"],
+  },
+];
+
+const problemItems = [
+  "Call salons and awkwardly explain their needs",
+  "Worry about privacy, staff, and male presence",
+  "Compromise on comfort or safety",
+];
+
+const solutionItems = [
+  "Search salons that match your privacy needs",
+  "See verified details before you visit",
+  "Read reviews from other hijabi women",
+];
+
+const benefits = [
+  {
+    title: "Privacy-first salons only",
+    subtitle: "Every listed salon meets our strict privacy standards.",
+  },
+  {
+    title: "Clear details before you visit",
+    subtitle: "Know exactly what to expect: rooms, staff, timings.",
+  },
+  {
+    title: "No uncomfortable conversations",
+    subtitle: "These salons already understand your needs.",
+  },
+  {
+    title: "Community-driven and trusted",
+    subtitle: "Built on reviews and recommendations from hijabi women.",
+  },
+];
+
+const testimonials = [
+  {
+    text: "I no longer have to call ahead and awkwardly explain my needs. I just search, pick a salon, and walk in knowing my privacy is respected.",
+    name: "Amira K.",
+    area: "Bay Ridge, Brooklyn",
+    initial: "A",
+  },
+  {
+    text: "As a salon owner, listing here brought us clients who truly appreciate what we offer. The platform understands our values.",
+    name: "Fatima S.",
+    area: "Astoria, Queens",
+    initial: "F",
+  },
+  {
+    text: "The reviews from other hijabis gave me confidence to try a new stylist. It was the most relaxing salon experience I've had.",
+    name: "Layla R.",
+    area: "Flatbush, Brooklyn",
+    initial: "L",
+  },
+];
+
 export function meta({}: Route.MetaArgs) {
   return [{ title: "Hijab Friendly Salon" }];
+}
+
+function DotIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#A98258]" fill="currentColor" aria-hidden>
+      <circle cx="12" cy="12" r="8" />
+    </svg>
+  );
+}
+
+function Star({ className = "w-3.5 h-3.5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={`${className} text-[#D4A76A]`} fill="currentColor" aria-hidden>
+      <path d="m12 2.8 2.7 5.5 6.1.9-4.4 4.2 1 6-5.4-2.9-5.5 2.9 1.1-6-4.4-4.2 6.1-.9z" />
+    </svg>
+  );
+}
+
+function LocationPin() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+      <path d="M20 10c0 5-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.2 4 15 4 10a8 8 0 0 1 16 0Z" />
+      <circle cx="12" cy="10" r="3" />
+    </svg>
+  );
+}
+
+function Check() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-[#A98258]" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+      <path d="m5 12 4 4 10-10" />
+    </svg>
+  );
 }
 
 export default function Home() {
